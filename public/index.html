@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Luxury Watches — Matte Black Arabic Numeral Watch</title>
-<meta name="description" content="The Matte Black Unisex Watch — raised Arabic numerals, date window and soft silicone strap. Comes in a gift box. Order on WhatsApp.">
+<meta name="description" content="The Matte Black Unisex Watch — raised Arabic numerals, date window and soft silicone strap. Comes in a gift box. ₦25,000 — order on WhatsApp.">
 <meta name="theme-color" content="#0b0b0c">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Matte Black Unisex Watch — Order on WhatsApp">
+<meta property="og:title" content="Matte Black Unisex Watch — ₦25,000 · Order on WhatsApp">
 <meta property="og:description" content="Simplicity, elegance and timeless style on your wrist. Raised Arabic numerals, date window, gift box included.">
 <meta property="og:image" content="/assets/dramatic.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23c9a96e' stroke-width='3'/%3E%3Cpath d='M32 20v12l8 5' stroke='%23c9a96e' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
@@ -124,6 +124,12 @@
   .order-visual img{position:relative;max-height:440px;width:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.7));transition:opacity .35s ease}
   .order h2{margin:14px 0 10px}
   .order .sub{color:var(--muted);margin-bottom:28px}
+  .price{display:flex;align-items:baseline;gap:12px;margin:22px 0 0}
+  .price .amt{font-family:var(--serif);font-size:2.4rem;font-weight:600;color:var(--gold-2);line-height:1}
+  .price .per{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .order .price{margin:-8px 0 26px}
+  .total{margin:-12px 0 24px;color:var(--muted);font-size:.95rem}
+  .total b{color:var(--text);font-weight:500;font-size:1.15rem;margin-left:6px}
   .label{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
   .swatches{display:flex;gap:12px;margin-bottom:26px;flex-wrap:wrap}
   .sw{display:flex;align-items:center;gap:10px;padding:.65rem 1.05rem .65rem .65rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font:400 .92rem var(--sans);cursor:pointer;transition:border-color .2s}
@@ -164,7 +170,7 @@
     .hero .wrap,.story .wrap,.order .wrap{grid-template-columns:1fr;gap:32px}
     .hero-copy{text-align:center}
     .hero p.lead{margin:0 auto}
-    .hero .ctas,.chips{justify-content:center}
+    .hero .ctas,.chips,.hero .price{justify-content:center}
     .hero-visual{order:-1}
     .hero-visual img{height:min(380px,48vh)}
     .grid4{grid-template-columns:1fr 1fr}
@@ -213,6 +219,7 @@
         <div class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg>The Matte Black Unisex Watch</div>
         <h1>Quiet luxury, <em>right on your wrist.</em></h1>
         <p class="lead">A sleek matte black watch with raised Arabic numerals, a crisp date window and a soft silicone strap. Sharp enough for the boardroom, easy enough for every day.</p>
+        <div class="price"><span class="amt">₦25,000</span><span class="per">Watch + gift box</span></div>
         <div class="ctas">
           <a class="btn btn-wa" data-wa href="#"><svg><use href="#wa"/></svg>Order on WhatsApp</a>
           <a class="btn btn-ghost" href="#order">Choose your colour</a>
@@ -280,7 +287,7 @@
       <ol class="steps">
         <li class="rv"><span class="n">1</span><h3>Pick your colour</h3><p>Matte Black or Midnight Blue, and how many you want.</p></li>
         <li class="rv"><span class="n">2</span><h3>Tap WhatsApp</h3><p>Your order is typed out for you. Just hit send.</p></li>
-        <li class="rv"><span class="n">3</span><h3>We confirm &amp; deliver</h3><p>We reply with the price and delivery details to get it to you.</p></li>
+        <li class="rv"><span class="n">3</span><h3>We confirm &amp; deliver</h3><p>We reply to confirm your order and arrange delivery.</p></li>
       </ol>
     </div>
   </section>
@@ -295,7 +302,8 @@
       <div class="rv">
         <div class="eyebrow">Order in 30 seconds</div>
         <h2>Get yours <em>today</em></h2>
-        <p class="sub">Pick a colour and quantity, then tap the button — we'll confirm price, availability and delivery with you on WhatsApp.</p>
+        <p class="sub">Pick a colour and quantity, then tap the button — we'll confirm availability and delivery with you on WhatsApp.</p>
+        <div class="price"><span class="amt">₦25,000</span><span class="per">per watch</span></div>
 
         <div class="label">Colour</div>
         <div class="swatches" role="group" aria-label="Colour">
@@ -309,6 +317,7 @@
           <output id="q" aria-live="polite">1</output>
           <button type="button" id="plus" aria-label="Increase quantity">+</button>
         </div>
+        <div class="total">Total <b id="total">₦25,000</b></div>
 
         <ul class="box-list">
           <li><b>In the box</b>Watch + premium gift box</li>
@@ -342,17 +351,19 @@
 </footer>
 
 <div class="sticky" id="sticky">
-  <a class="btn btn-wa" data-wa data-order href="#"><svg><use href="#wa"/></svg>Order on WhatsApp</a>
+  <a class="btn btn-wa" data-wa data-order href="#"><svg><use href="#wa"/></svg>Order now · ₦25,000</a>
 </div>
 
 <script>
 (function(){
   var PHONE = "2347037115545";
+  var PRICE = 25000;
   var state = { color: "Matte Black", qty: 1 };
+  function naira(n){ return "₦" + n.toLocaleString("en-NG"); }
 
   function message(withOrder){
-    if(!withOrder) return "Hello Luxury Watches! 👋 I saw your Matte Black Unisex Watch and I'd like to order. Is it available?";
-    return "Hello Luxury Watches! 👋 I'd like to order:\n\n⌚ Unisex Watch — " + state.color + "\n🔢 Quantity: " + state.qty + "\n\nPlease share the price and delivery details. Thank you!";
+    if(!withOrder) return "Hello Luxury Watches! 👋 I saw your Matte Black Unisex Watch (₦25,000) and I'd like to order. Is it available?";
+    return "Hello Luxury Watches! 👋 I'd like to order:\n\n⌚ Unisex Watch — " + state.color + "\n🔢 Quantity: " + state.qty + "\n💰 Total: " + naira(PRICE * state.qty) + "\n\nPlease confirm availability and delivery details. Thank you!";
   }
   function link(withOrder){ return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(message(withOrder)); }
   function refresh(){
@@ -384,7 +395,7 @@
     });
   });
   var q = document.getElementById("q");
-  function setQty(n){ state.qty = Math.max(1, Math.min(20, n)); q.textContent = state.qty; refresh(); }
+  function setQty(n){ state.qty = Math.max(1, Math.min(20, n)); q.textContent = state.qty; document.getElementById("total").textContent = naira(PRICE * state.qty); refresh(); }
   document.getElementById("minus").addEventListener("click", function(){ setQty(state.qty - 1); });
   document.getElementById("plus").addEventListener("click", function(){ setQty(state.qty + 1); });
 
