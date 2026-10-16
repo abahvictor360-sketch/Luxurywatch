@@ -137,10 +137,21 @@
   .sw{display:flex;align-items:center;gap:10px;padding:.65rem 1.05rem .65rem .65rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font:400 .92rem var(--sans);cursor:pointer;transition:border-color .2s}
   .sw[aria-pressed="true"]{border-color:var(--gold);background:rgba(201,169,110,.08)}
   .dot{width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}
-  .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;margin-bottom:28px}
+  .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;margin-bottom:28px;background:var(--panel)}
   .qty button{width:46px;height:46px;background:none;border:0;color:var(--text);font-size:1.3rem;cursor:pointer}
   .qty output{min-width:36px;text-align:center;font-weight:700}
-  .order .btn-wa{width:100%;font-size:1.02rem;padding:1.15rem}
+  .order .btn-wa{width:100%;font-size:1.05rem;padding:1.15rem}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .field input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:14px;color:var(--text);font:500 1rem var(--sans);padding:.95rem 1.1rem;outline:none;transition:border-color .2s, box-shadow .2s}
+  .field input::placeholder{color:#6f6b64;font-weight:400}
+  .field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.18)}
+  .field.bad input{border-color:#e5484d}
+  .err{display:none;color:#ff8a8d;font-size:.82rem;margin-top:6px}
+  .field.bad .err{display:block}
+  #order-form{margin-bottom:28px}
+  #order{scroll-margin-top:62px}
+  .fine.ok{color:var(--wa)}
   .fine{font-size:.82rem;color:var(--muted);margin-top:14px;text-align:center}
   .box-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 28px}
   .box-list li{font-size:.9rem;color:var(--muted);border:1px solid var(--line);border-radius:12px;padding:.7rem .9rem}
@@ -209,7 +220,7 @@
 <header>
   <div class="wrap">
     <a href="#top" class="logo">Luxury <span>Watches</span></a>
-    <a class="btn btn-wa hdr-wa" data-wa href="#"><svg><use href="#wa"/></svg><span class="t">Order on WhatsApp</span></a>
+    <a class="btn btn-wa hdr-wa" href="#order" data-go><svg><use href="#wa"/></svg><span class="t">Order now</span></a>
   </div>
 </header>
 
@@ -223,8 +234,8 @@
         <p class="lead">A sleek matte black watch with raised Arabic numerals, a crisp date window and a soft silicone strap. Sharp enough for the boardroom, easy enough for every day.</p>
         <div class="price"><span class="amt">₦25,000</span><span class="per">Watch + gift box</span></div>
         <div class="ctas">
-          <a class="btn btn-wa" data-wa href="#"><svg><use href="#wa"/></svg>Order on WhatsApp</a>
-          <a class="btn btn-ghost" href="#order">Choose your colour</a>
+          <a class="btn btn-wa" href="#order" data-go><svg><use href="#wa"/></svg>Order now</a>
+          <a class="btn btn-ghost" href="#order" data-go>Choose your colour</a>
         </div>
         <div class="chips">
           <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>Unisex · Him or Her</span>
@@ -250,7 +261,7 @@
         <h2>Simplicity. Elegance. <em>Timeless style.</em></h2>
         <p>A beautiful blend of simplicity and elegance. The matte black finish goes with everything you own, from a tailored suit to a weekend tee, while the raised Arabic numerals give it a signature look you won't see on every wrist.</p>
         <blockquote>Simple on the dial. Unforgettable on the wrist.</blockquote>
-        <a class="btn btn-wa" data-wa href="#"><svg><use href="#wa"/></svg>Order yours on WhatsApp</a>
+        <a class="btn btn-wa" href="#order" data-go><svg><use href="#wa"/></svg>Order yours now</a>
       </div>
     </div>
   </section>
@@ -287,8 +298,8 @@
     <div class="wrap">
       <div class="head rv"><div class="eyebrow">How to order</div><h2>Three steps. <em>No stress.</em></h2></div>
       <ol class="steps">
-        <li class="rv"><span class="n">1</span><h3>Pick your colour</h3><p>Matte Black or Midnight Blue, and how many you want.</p></li>
-        <li class="rv"><span class="n">2</span><h3>Tap WhatsApp</h3><p>Your order is typed out for you. Just hit send.</p></li>
+        <li class="rv"><span class="n">1</span><h3>Fill the form</h3><p>Your name, phone number, colour and how many you want.</p></li>
+        <li class="rv"><span class="n">2</span><h3>Tap Submit</h3><p>WhatsApp opens with your order ready. Just hit send.</p></li>
         <li class="rv"><span class="n">3</span><h3>We confirm &amp; deliver</h3><p>We reply to confirm your order and arrange delivery.</p></li>
       </ol>
     </div>
@@ -304,13 +315,25 @@
       <div class="rv">
         <div class="eyebrow">Order in 30 seconds</div>
         <h2>Get yours <em>today</em></h2>
-        <p class="sub">Pick a colour and quantity, then tap the button — we'll confirm availability and delivery with you on WhatsApp.</p>
+        <p class="sub">Fill in your details and tap Submit. Your order comes straight to us on WhatsApp and we'll confirm delivery with you.</p>
         <div class="price"><span class="amt">₦25,000</span><span class="per">per watch</span></div>
 
+        <form id="order-form" novalidate>
         <div class="label">Colour</div>
         <div class="swatches" role="group" aria-label="Colour">
           <button class="sw" type="button" aria-pressed="true" data-color="Matte Black" data-img="/assets/watch-black.webp"><span class="dot" style="background:#1b1b1d"></span>Matte Black</button>
           <button class="sw" type="button" aria-pressed="false" data-color="Midnight Blue" data-img="/assets/watch-blue.webp"><span class="dot" style="background:#26314f"></span>Midnight Blue</button>
+        </div>
+
+        <div class="field">
+          <label for="f-name">Full name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" placeholder="e.g. Amaka Johnson" required minlength="2">
+          <span class="err" id="e-name">Please enter your name.</span>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone number</label>
+          <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g. 0803 123 4567" required>
+          <span class="err" id="e-phone">Please enter a valid phone number.</span>
         </div>
 
         <div class="label">Quantity</div>
@@ -321,15 +344,16 @@
         </div>
         <div class="total">Total <b id="total">₦25,000</b></div>
 
+        <button class="btn btn-wa submit" type="submit"><svg><use href="#wa"/></svg>Submit order</button>
+        <p class="fine" id="form-note" aria-live="polite">Submitting opens WhatsApp with your order. Just tap Send.</p>
+        </form>
+
         <ul class="box-list">
           <li><b>In the box</b>Watch + premium gift box</li>
           <li><b>Strap</b>Soft black silicone</li>
           <li><b>Watch weight</b>61 g — light on the wrist</li>
           <li><b>Gift box</b>150 × 67 × 33 mm</li>
         </ul>
-
-        <a class="btn btn-wa" data-wa data-order href="#"><svg><use href="#wa"/></svg>Order on WhatsApp</a>
-        <p class="fine">Tap to chat with us on WhatsApp · 0703 711 5545</p>
       </div>
     </div>
   </section>
@@ -340,7 +364,7 @@
       <div class="final-ic"><svg class="" aria-hidden="true"><use href="#i-watch"/></svg></div>
       <h2>Your next favourite watch is <em>one message away.</em></h2>
       <p><svg class="ico" aria-hidden="true"><use href="#i-flame"/></svg>Don't overthink it. Order yours today, and grab a second one as a gift.</p>
-      <a class="btn btn-wa" data-wa href="#"><svg><use href="#wa"/></svg>Order on WhatsApp now</a>
+      <a class="btn btn-wa" href="#order" data-go><svg><use href="#wa"/></svg>Order yours now</a>
     </div>
   </section>
 </main>
@@ -353,7 +377,7 @@
 </footer>
 
 <div class="sticky" id="sticky">
-  <a class="btn btn-wa" data-wa data-order href="#"><svg><use href="#wa"/></svg>Order now · ₦25,000</a>
+  <a class="btn btn-wa" href="#order" data-go><svg><use href="#wa"/></svg>Order now · ₦25,000</a>
 </div>
 
 <script>
@@ -363,25 +387,51 @@
   var state = { color: "Matte Black", qty: 1 };
   function naira(n){ return "₦" + n.toLocaleString("en-NG"); }
 
-  function message(withOrder){
-    if(!withOrder) return "Hello Luxury Watches! 👋 I saw your Matte Black Unisex Watch (₦25,000) and I'd like to order. Is it available?";
-    return "Hello Luxury Watches! 👋 I'd like to order:\n\n⌚ Unisex Watch — " + state.color + "\n🔢 Quantity: " + state.qty + "\n💰 Total: " + naira(PRICE * state.qty) + "\n\nPlease confirm availability and delivery details. Thank you!";
-  }
-  function link(withOrder){ return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(message(withOrder)); }
+  function waLink(text){ return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text); }
   function refresh(){
     document.querySelectorAll("[data-wa]").forEach(function(a){
-      a.href = link(a.hasAttribute("data-order"));
+      a.href = waLink("Hello Luxury Watches! 👋 I have a question about the Unisex Watch.");
       a.target = "_blank"; a.rel = "noopener";
     });
   }
   refresh();
 
-  // Facebook ads tracking: fire a Contact event on every WhatsApp tap if the Pixel is installed.
-  document.addEventListener("click", function(e){
-    var a = e.target.closest && e.target.closest("[data-wa]");
-    if(a && typeof window.fbq === "function"){
-      window.fbq("track", "Contact", { content_name: "Unisex Watch - " + state.color, num_items: state.qty });
+  // Every "Order" button scrolls to the form and focuses the name field
+  var nameIn = document.getElementById("f-name"), phoneIn = document.getElementById("f-phone");
+  document.querySelectorAll("[data-go]").forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      document.getElementById("order").scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(function(){ nameIn.focus({ preventScroll: true }); }, 650);
+    });
+  });
+
+  // Order form -> WhatsApp
+  var form = document.getElementById("order-form"), note = document.getElementById("form-note");
+  function validPhone(v){ var d = v.replace(/\D/g, ""); return d.length >= 10 && d.length <= 15; }
+  function mark(input, ok){ input.parentNode.classList.toggle("bad", !ok); return ok; }
+  nameIn.addEventListener("input", function(){ if(nameIn.parentNode.classList.contains("bad")) mark(nameIn, nameIn.value.trim().length >= 2); });
+  phoneIn.addEventListener("input", function(){ if(phoneIn.parentNode.classList.contains("bad")) mark(phoneIn, validPhone(phoneIn.value)); });
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = nameIn.value.trim(), phone = phoneIn.value.trim();
+    var okName = mark(nameIn, name.length >= 2), okPhone = mark(phoneIn, validPhone(phone));
+    if(!okName){ nameIn.focus(); return; }
+    if(!okPhone){ phoneIn.focus(); return; }
+    var text = "🛒 NEW ORDER — Luxury Watches\n\n" +
+      "👤 Name: " + name + "\n" +
+      "📞 Phone: " + phone + "\n" +
+      "⌚ Watch: Unisex Watch — " + state.color + "\n" +
+      "🔢 Quantity: " + state.qty + "\n" +
+      "💰 Total: " + naira(PRICE * state.qty) + "\n\n" +
+      "Please confirm my order and delivery details. Thank you!";
+    if(typeof window.fbq === "function"){
+      window.fbq("track", "Lead", { content_name: "Unisex Watch - " + state.color, num_items: state.qty, value: PRICE * state.qty, currency: "NGN" });
     }
+    note.textContent = "Opening WhatsApp… just tap Send to complete your order.";
+    note.classList.add("ok");
+    var url = waLink(text), w = window.open(url, "_blank");
+    if(!w) window.location.href = url;
   });
 
   // Colour + quantity
@@ -393,11 +443,10 @@
       state.color = b.dataset.color;
       img.style.opacity = 0;
       setTimeout(function(){ img.src = b.dataset.img; img.style.opacity = 1; }, 200);
-      refresh();
     });
   });
   var q = document.getElementById("q");
-  function setQty(n){ state.qty = Math.max(1, Math.min(20, n)); q.textContent = state.qty; document.getElementById("total").textContent = naira(PRICE * state.qty); refresh(); }
+  function setQty(n){ state.qty = Math.max(1, Math.min(20, n)); q.textContent = state.qty; document.getElementById("total").textContent = naira(PRICE * state.qty); }
   document.getElementById("minus").addEventListener("click", function(){ setQty(state.qty - 1); });
   document.getElementById("plus").addEventListener("click", function(){ setQty(state.qty + 1); });
 
@@ -411,9 +460,12 @@
   } else {
     document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); });
   }
-  window.addEventListener("scroll", function(){
-    sticky.classList.toggle("show", window.scrollY > 520);
-  }, { passive: true });
+  var formInView = false;
+  function stickyUpdate(){ sticky.classList.toggle("show", window.scrollY > 520 && !formInView); }
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){ formInView = es[0].isIntersecting; stickyUpdate(); }, { threshold: .05 }).observe(form);
+  }
+  window.addEventListener("scroll", stickyUpdate, { passive: true });
 
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
