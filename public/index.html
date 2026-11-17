@@ -417,6 +417,15 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
   function naira(n){ return "₦" + n.toLocaleString("en-NG"); }
 
   function waLink(text){ return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text); }
+  // Meta "Contact" event: fired whenever a visitor opens WhatsApp to reach us (pixel + Conversions API, same event ID).
+  function trackContact(user){
+    var id = window.metaEventId ? window.metaEventId() : String(Date.now());
+    if(typeof window.fbq === "function") window.fbq("track", "Contact", {}, { eventID: id });
+    if(typeof window.sendCapi === "function") window.sendCapi("Contact", {}, user || {}, id);
+  }
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    a.addEventListener("click", function(){ trackContact(); });
+  });
   function refresh(){
     document.querySelectorAll("[data-wa]").forEach(function(a){
       a.href = waLink("Hello Luxury Watches! 👋 I have a question about the Unisex Watch.");
@@ -462,6 +471,7 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
     if(typeof window.sendCapi === "function"){
       window.sendCapi("Lead", leadData, { name: name, phone: phone }, leadId);
     }
+    trackContact({ name: name, phone: phone });
     note.textContent = "Opening WhatsApp… just tap Send to complete your order.";
     note.classList.add("ok");
     var url = waLink(text), w = window.open(url, "_blank");
