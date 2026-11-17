@@ -27,7 +27,21 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1970807947230282');
-fbq('track', 'PageView');
+// Conversions API: send each event to /api/capi too, with the same event ID so Meta deduplicates.
+window.metaEventId = function(){ return Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10); };
+window.sendCapi = function(name, customData, user, eventId){
+  try {
+    var body = JSON.stringify({ event_name: name, event_id: eventId, event_source_url: location.href, custom_data: customData || {}, user: user || {} });
+    if (navigator.sendBeacon && navigator.sendBeacon("/api/capi", new Blob([body], { type: "application/json" }))) return;
+    fetch("/api/capi", { method: "POST", headers: { "Content-Type": "application/json" }, body: body, keepalive: true }).catch(function(){});
+  } catch (e) {}
+};
+(function(){
+  var id = window.metaEventId();
+  fbq('track', 'PageView', {}, { eventID: id });
+  // Wait a moment so fbevents.js can set the _fbp cookie before the server event goes out.
+  setTimeout(function(){ window.sendCapi('PageView', {}, {}, id); }, 1500);
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
@@ -440,8 +454,13 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
       "🔢 Quantity: " + state.qty + "\n" +
       "💰 Total: " + naira(PRICE * state.qty) + "\n\n" +
       "Please confirm my order and delivery details. Thank you!";
+    var leadData = { content_name: "Unisex Watch - " + state.color, num_items: state.qty, value: PRICE * state.qty, currency: "NGN" };
+    var leadId = window.metaEventId ? window.metaEventId() : String(Date.now());
     if(typeof window.fbq === "function"){
-      window.fbq("track", "Lead", { content_name: "Unisex Watch - " + state.color, num_items: state.qty, value: PRICE * state.qty, currency: "NGN" });
+      window.fbq("track", "Lead", leadData, { eventID: leadId });
+    }
+    if(typeof window.sendCapi === "function"){
+      window.sendCapi("Lead", leadData, { name: name, phone: phone }, leadId);
     }
     note.textContent = "Opening WhatsApp… just tap Send to complete your order.";
     note.classList.add("ok");
