@@ -16,6 +16,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="/assets/watch-black.webp">
 
+<script>if("IntersectionObserver" in window)document.documentElement.className+=" js-rv";</script>
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -175,9 +177,7 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
   .field input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:14px;color:var(--text);font:500 1rem var(--sans);padding:.95rem 1.1rem;outline:none;transition:border-color .2s, box-shadow .2s}
   .field input::placeholder{color:#6f6b64;font-weight:400}
   .field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.18)}
-  .field.bad input{border-color:#e5484d}
-  .err{display:none;color:#ff8a8d;font-size:.82rem;margin-top:6px}
-  .field.bad .err{display:block}
+  .field .opt{letter-spacing:.05em;text-transform:none;font-weight:500;color:#8a857c}
   #order-form{margin-bottom:28px}
   #order{scroll-margin-top:62px}
   .fine.ok{color:var(--wa)}
@@ -203,9 +203,9 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
   @media(min-width:900px){.sticky{display:none}footer{padding-bottom:30px}}
 
   /* Reveal */
-  .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
-  .rv.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.hero-visual img{animation:none}}
+  .js-rv .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
+  .js-rv .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js-rv .rv{opacity:1;transform:none}.hero-visual img{animation:none}}
 
   @media(max-width:900px){
     .hero{padding-top:28px}
@@ -249,7 +249,7 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
 <header>
   <div class="wrap">
     <a href="#top" class="logo">Luxury <span>Watches</span></a>
-    <a class="btn btn-wa hdr-wa" href="#order" data-go><svg><use href="#wa"/></svg><span class="t">Order now</span></a>
+    <a class="btn btn-wa hdr-wa" href="https://wa.me/2347037115545?text=Hello%20Luxury%20Watches!%20%F0%9F%91%8B%20I%20want%20to%20order%3A%0A%0A%E2%8C%9A%20Unisex%20Watch%20%E2%80%94%20Matte%20Black%0A%F0%9F%94%A2%20Quantity%3A%201%0A%F0%9F%92%B0%20Total%3A%20%E2%82%A625%2C000%0A%0APlease%20confirm%20my%20order%20and%20delivery.%20Thank%20you!" data-order><svg><use href="#wa"/></svg><span class="t">Order on WhatsApp</span></a>
   </div>
 </header>
 
@@ -263,8 +263,8 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
         <p class="lead">A sleek matte black watch with raised Arabic numerals, a crisp date window and a soft silicone strap. Sharp enough for the boardroom, easy enough for every day.</p>
         <div class="price"><span class="amt">₦25,000</span><span class="per">Watch + gift box</span></div>
         <div class="ctas">
-          <a class="btn btn-wa" href="#order" data-go><svg><use href="#wa"/></svg>Order now</a>
-          <a class="btn btn-ghost" href="#order" data-go>Choose your colour</a>
+          <a class="btn btn-wa" href="https://wa.me/2347037115545?text=Hello%20Luxury%20Watches!%20%F0%9F%91%8B%20I%20want%20to%20order%3A%0A%0A%E2%8C%9A%20Unisex%20Watch%20%E2%80%94%20Matte%20Black%0A%F0%9F%94%A2%20Quantity%3A%201%0A%F0%9F%92%B0%20Total%3A%20%E2%82%A625%2C000%0A%0APlease%20confirm%20my%20order%20and%20delivery.%20Thank%20you!" data-order><svg><use href="#wa"/></svg>Order on WhatsApp</a>
+          <a class="btn btn-ghost" href="#order">Choose colour &amp; quantity</a>
         </div>
         <div class="chips">
           <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>Unisex · Him or Her</span>
@@ -290,7 +290,7 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
         <h2>Simplicity. Elegance. <em>Timeless style.</em></h2>
         <p>A beautiful blend of simplicity and elegance. The matte black finish goes with everything you own, from a tailored suit to a weekend tee, while the raised Arabic numerals give it a signature look you won't see on every wrist.</p>
         <blockquote>Simple on the dial. Unforgettable on the wrist.</blockquote>
-        <a class="btn btn-wa" href="#order" data-go><svg><use href="#wa"/></svg>Order yours now</a>
+        <a class="btn btn-wa" href="https://wa.me/2347037115545?text=Hello%20Luxury%20Watches!%20%F0%9F%91%8B%20I%20want%20to%20order%3A%0A%0A%E2%8C%9A%20Unisex%20Watch%20%E2%80%94%20Matte%20Black%0A%F0%9F%94%A2%20Quantity%3A%201%0A%F0%9F%92%B0%20Total%3A%20%E2%82%A625%2C000%0A%0APlease%20confirm%20my%20order%20and%20delivery.%20Thank%20you!" data-order><svg><use href="#wa"/></svg>Order yours now</a>
       </div>
     </div>
   </section>
@@ -327,8 +327,8 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
     <div class="wrap">
       <div class="head rv"><div class="eyebrow">How to order</div><h2>Three steps. <em>No stress.</em></h2></div>
       <ol class="steps">
-        <li class="rv"><span class="n">1</span><h3>Fill the form</h3><p>Your name, phone number, colour and how many you want.</p></li>
-        <li class="rv"><span class="n">2</span><h3>Tap Submit</h3><p>WhatsApp opens with your order ready. Just hit send.</p></li>
+        <li class="rv"><span class="n">1</span><h3>Tap Order</h3><p>Any green Order button opens WhatsApp with your order already typed.</p></li>
+        <li class="rv"><span class="n">2</span><h3>Hit Send</h3><p>Send the message. Add your delivery address if you like.</p></li>
         <li class="rv"><span class="n">3</span><h3>We confirm &amp; deliver</h3><p>We reply to confirm your order and arrange delivery.</p></li>
       </ol>
     </div>
@@ -337,32 +337,21 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
   <!-- ORDER -->
   <section class="order" id="order">
     <div class="wrap">
-      <div class="order-visual rv">
+      <div class="order-visual">
         <div class="spot"></div>
         <img id="order-img" src="/assets/watch-black.webp" alt="Selected watch colour" width="760" height="1449" loading="lazy">
       </div>
-      <div class="rv">
-        <div class="eyebrow">Order in 30 seconds</div>
+      <div>
+        <div class="eyebrow">Order in 10 seconds</div>
         <h2>Get yours <em>today</em></h2>
-        <p class="sub">Fill in your details and tap Submit. Your order comes straight to us on WhatsApp and we'll confirm delivery with you.</p>
+        <p class="sub">Pick your colour and quantity, then tap the button. WhatsApp opens with your order ready. Just hit Send and we'll confirm delivery with you.</p>
         <div class="price"><span class="amt">₦25,000</span><span class="per">per watch</span></div>
 
-        <form id="order-form" novalidate>
+        <div id="order-form">
         <div class="label">Colour</div>
         <div class="swatches" role="group" aria-label="Colour">
           <button class="sw" type="button" aria-pressed="true" data-color="Matte Black" data-img="/assets/watch-black.webp"><span class="dot" style="background:#1b1b1d"></span>Matte Black</button>
           <button class="sw" type="button" aria-pressed="false" data-color="Midnight Blue" data-img="/assets/watch-blue.webp"><span class="dot" style="background:#26314f"></span>Midnight Blue</button>
-        </div>
-
-        <div class="field">
-          <label for="f-name">Full name</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" placeholder="e.g. Amaka Johnson" required minlength="2">
-          <span class="err" id="e-name">Please enter your name.</span>
-        </div>
-        <div class="field">
-          <label for="f-phone">Phone number</label>
-          <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g. 0803 123 4567" required>
-          <span class="err" id="e-phone">Please enter a valid phone number.</span>
         </div>
 
         <div class="label">Quantity</div>
@@ -373,9 +362,9 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
         </div>
         <div class="total">Total <b id="total">₦25,000</b></div>
 
-        <button class="btn btn-wa submit" type="submit"><svg><use href="#wa"/></svg>Submit order</button>
-        <p class="fine" id="form-note" aria-live="polite">Submitting opens WhatsApp with your order. Just tap Send.</p>
-        </form>
+        <a class="btn btn-wa submit" id="order-btn" href="https://wa.me/2347037115545?text=Hello%20Luxury%20Watches!%20%F0%9F%91%8B%20I%20want%20to%20order%3A%0A%0A%E2%8C%9A%20Unisex%20Watch%20%E2%80%94%20Matte%20Black%0A%F0%9F%94%A2%20Quantity%3A%201%0A%F0%9F%92%B0%20Total%3A%20%E2%82%A625%2C000%0A%0APlease%20confirm%20my%20order%20and%20delivery.%20Thank%20you!" data-order><svg><use href="#wa"/></svg>Order on WhatsApp</a>
+        <p class="fine" id="form-note" aria-live="polite">Opens WhatsApp with your order typed in. Just tap Send.</p>
+        </div>
 
         <ul class="box-list">
           <li><b>In the box</b>Watch + premium gift box</li>
@@ -393,7 +382,7 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
       <div class="final-ic"><svg class="" aria-hidden="true"><use href="#i-watch"/></svg></div>
       <h2>Your next favourite watch is <em>one message away.</em></h2>
       <p><svg class="ico" aria-hidden="true"><use href="#i-flame"/></svg>Don't overthink it. Order yours today, and grab a second one as a gift.</p>
-      <a class="btn btn-wa" href="#order" data-go><svg><use href="#wa"/></svg>Order yours now</a>
+      <a class="btn btn-wa" href="https://wa.me/2347037115545?text=Hello%20Luxury%20Watches!%20%F0%9F%91%8B%20I%20want%20to%20order%3A%0A%0A%E2%8C%9A%20Unisex%20Watch%20%E2%80%94%20Matte%20Black%0A%F0%9F%94%A2%20Quantity%3A%201%0A%F0%9F%92%B0%20Total%3A%20%E2%82%A625%2C000%0A%0APlease%20confirm%20my%20order%20and%20delivery.%20Thank%20you!" data-order><svg><use href="#wa"/></svg>Order yours now</a>
     </div>
   </section>
 </main>
@@ -406,7 +395,7 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
 </footer>
 
 <div class="sticky" id="sticky">
-  <a class="btn btn-wa" href="#order" data-go><svg><use href="#wa"/></svg>Order now · ₦25,000</a>
+  <a class="btn btn-wa" href="https://wa.me/2347037115545?text=Hello%20Luxury%20Watches!%20%F0%9F%91%8B%20I%20want%20to%20order%3A%0A%0A%E2%8C%9A%20Unisex%20Watch%20%E2%80%94%20Matte%20Black%0A%F0%9F%94%A2%20Quantity%3A%201%0A%F0%9F%92%B0%20Total%3A%20%E2%82%A625%2C000%0A%0APlease%20confirm%20my%20order%20and%20delivery.%20Thank%20you!" data-order><svg><use href="#wa"/></svg>Order on WhatsApp · ₦25,000</a>
 </div>
 
 <script>
@@ -423,91 +412,71 @@ src="https://www.facebook.com/tr?id=1970807947230282&ev=PageView&noscript=1"
     if(typeof window.fbq === "function") window.fbq("track", "Contact", {}, { eventID: id });
     if(typeof window.sendCapi === "function") window.sendCapi("Contact", {}, user || {}, id);
   }
-  document.querySelectorAll("[data-wa]").forEach(function(a){
-    a.addEventListener("click", function(){ trackContact(); });
-  });
-  function refresh(){
-    document.querySelectorAll("[data-wa]").forEach(function(a){
-      a.href = waLink("Hello Luxury Watches! 👋 I have a question about the Unisex Watch.");
-      a.target = "_blank"; a.rel = "noopener";
-    });
+  var waLinks = document.querySelectorAll("[data-wa]");
+  for(var j = 0; j < waLinks.length; j++){
+    waLinks[j].href = waLink("Hello Luxury Watches! 👋 I have a question about the Unisex Watch.");
+    waLinks[j].addEventListener("click", function(){ trackContact(); });
   }
-  refresh();
 
-  // Every "Order" button scrolls to the form and focuses the name field
-  var nameIn = document.getElementById("f-name"), phoneIn = document.getElementById("f-phone");
-  document.querySelectorAll("[data-go]").forEach(function(a){
-    a.addEventListener("click", function(e){
-      e.preventDefault();
-      document.getElementById("order").scrollIntoView({ behavior: "smooth", block: "start" });
-      setTimeout(function(){ nameIn.focus({ preventScroll: true }); }, 650);
-    });
-  });
-
-  // Order form -> WhatsApp
-  var form = document.getElementById("order-form"), note = document.getElementById("form-note");
-  function validPhone(v){ var d = v.replace(/\D/g, ""); return d.length >= 10 && d.length <= 15; }
-  function mark(input, ok){ input.parentNode.classList.toggle("bad", !ok); return ok; }
-  nameIn.addEventListener("input", function(){ if(nameIn.parentNode.classList.contains("bad")) mark(nameIn, nameIn.value.trim().length >= 2); });
-  phoneIn.addEventListener("input", function(){ if(phoneIn.parentNode.classList.contains("bad")) mark(phoneIn, validPhone(phoneIn.value)); });
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var name = nameIn.value.trim(), phone = phoneIn.value.trim();
-    var okName = mark(nameIn, name.length >= 2), okPhone = mark(phoneIn, validPhone(phone));
-    if(!okName){ nameIn.focus(); return; }
-    if(!okPhone){ phoneIn.focus(); return; }
-    var text = "🛒 NEW ORDER — Luxury Watches\n\n" +
-      "👤 Name: " + name + "\n" +
-      "📞 Phone: " + phone + "\n" +
-      "⌚ Watch: Unisex Watch — " + state.color + "\n" +
+  // Every Order button is a real link straight to WhatsApp with the order typed in.
+  // (Plain links work even in the Facebook/Instagram in-app browser; JS only keeps the text in sync.)
+  function orderText(){
+    return "Hello Luxury Watches! 👋 I want to order:\n\n" +
+      "⌚ Unisex Watch — " + state.color + "\n" +
       "🔢 Quantity: " + state.qty + "\n" +
       "💰 Total: " + naira(PRICE * state.qty) + "\n\n" +
-      "Please confirm my order and delivery details. Thank you!";
-    var leadData = { content_name: "Unisex Watch - " + state.color, num_items: state.qty, value: PRICE * state.qty, currency: "NGN" };
-    var leadId = window.metaEventId ? window.metaEventId() : String(Date.now());
-    if(typeof window.fbq === "function"){
-      window.fbq("track", "Lead", leadData, { eventID: leadId });
-    }
-    if(typeof window.sendCapi === "function"){
-      window.sendCapi("Lead", leadData, { name: name, phone: phone }, leadId);
-    }
-    trackContact({ name: name, phone: phone });
-    note.textContent = "Opening WhatsApp… just tap Send to complete your order.";
-    note.classList.add("ok");
-    var url = waLink(text), w = window.open(url, "_blank");
-    if(!w) window.location.href = url;
-  });
+      "Please confirm my order and delivery. Thank you!";
+  }
+  var orderLinks = document.querySelectorAll("[data-order]");
+  function syncOrderLinks(){
+    var url = waLink(orderText());
+    for(var i = 0; i < orderLinks.length; i++) orderLinks[i].href = url;
+  }
+  for(var i = 0; i < orderLinks.length; i++){
+    orderLinks[i].addEventListener("click", function(){
+      var leadData = { content_name: "Unisex Watch - " + state.color, num_items: state.qty, value: PRICE * state.qty, currency: "NGN" };
+      var leadId = window.metaEventId ? window.metaEventId() : String(Date.now());
+      try { if(typeof window.fbq === "function") window.fbq("track", "Lead", leadData, { eventID: leadId }); } catch(e){}
+      try { if(typeof window.sendCapi === "function") window.sendCapi("Lead", leadData, {}, leadId); } catch(e){}
+      try { trackContact(); } catch(e){}
+    });
+  }
 
   // Colour + quantity
   var img = document.getElementById("order-img");
-  document.querySelectorAll(".sw").forEach(function(b){
+  Array.prototype.forEach.call(document.querySelectorAll(".sw"), function(b){
     b.addEventListener("click", function(){
-      document.querySelectorAll(".sw").forEach(function(x){ x.setAttribute("aria-pressed","false"); });
+      Array.prototype.forEach.call(document.querySelectorAll(".sw"), function(x){ x.setAttribute("aria-pressed","false"); });
       b.setAttribute("aria-pressed","true");
       state.color = b.dataset.color;
       img.style.opacity = 0;
       setTimeout(function(){ img.src = b.dataset.img; img.style.opacity = 1; }, 200);
+      syncOrderLinks();
     });
   });
   var q = document.getElementById("q");
-  function setQty(n){ state.qty = Math.max(1, Math.min(20, n)); q.textContent = state.qty; document.getElementById("total").textContent = naira(PRICE * state.qty); }
+  function setQty(n){ state.qty = Math.max(1, Math.min(20, n)); q.textContent = state.qty; document.getElementById("total").textContent = naira(PRICE * state.qty); syncOrderLinks(); }
   document.getElementById("minus").addEventListener("click", function(){ setQty(state.qty - 1); });
   document.getElementById("plus").addEventListener("click", function(){ setQty(state.qty + 1); });
 
   // Reveal on scroll + sticky CTA
   var sticky = document.getElementById("sticky");
   if("IntersectionObserver" in window){
+    var ioFired = false;
     var io = new IntersectionObserver(function(es){
+      ioFired = true;
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
     }, { threshold: .12 });
-    document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+    Array.prototype.forEach.call(document.querySelectorAll(".rv"), function(el){ io.observe(el); });
+    // Failsafe: if the observer misbehaves (some in-app browsers), show everything anyway.
+    setTimeout(function(){ if(!ioFired) document.documentElement.classList.remove("js-rv"); }, 2500);
   } else {
-    document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); });
+    Array.prototype.forEach.call(document.querySelectorAll(".rv"), function(el){ el.classList.add("in"); });
   }
   var formInView = false;
   function stickyUpdate(){ sticky.classList.toggle("show", window.scrollY > 520 && !formInView); }
   if("IntersectionObserver" in window){
-    new IntersectionObserver(function(es){ formInView = es[0].isIntersecting; stickyUpdate(); }, { threshold: .05 }).observe(form);
+    new IntersectionObserver(function(es){ formInView = es[0].isIntersecting; stickyUpdate(); }, { threshold: .05 }).observe(document.getElementById("order-btn"));
   }
   window.addEventListener("scroll", stickyUpdate, { passive: true });
 
